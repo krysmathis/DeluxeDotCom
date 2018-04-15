@@ -9,9 +9,12 @@ class SimpleDotComTestDrive {
         System.out.println(test.canCheckGuess());
         System.out.println(test.canCheckHits());
         System.out.println(test.canCheckKill());
+        System.out.println(test.canCheckValidGuess());
+        System.out.println(test.canCheckInvalidGuess());
 
         SimpleDotCom dot = new SimpleDotCom();
         GameHelper gameHelper = new GameHelper();
+        GuessTracker guessTracker = new GuessTracker();
 
         int numberOfGuesses = 0;
         Random r = new Random();
@@ -23,8 +26,12 @@ class SimpleDotComTestDrive {
         //System.out.println("location starts at: " + start);
         while (!dot.isKilled()) {
             String guess = gameHelper.getUserInput("enter a number");
-            String result = dot.checkYourself(guess);
-            System.out.println(result);
+            if (guessTracker.ValidateGuess(guess)) {
+                String result = dot.checkYourself(guess);
+                System.out.println(result);
+            } else {
+                System.out.println("You already guessed this one");
+            }
             numberOfGuesses++;
         }
 

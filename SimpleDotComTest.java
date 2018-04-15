@@ -63,5 +63,46 @@ class SimpleDotComTest {
         return testResults;
     }
    
+    public String canCheckValidGuess() {
+        
+        SimpleDotCom dot = new SimpleDotCom();
+        GuessTracker guessTracker = new GuessTracker();
+        int[] locations = {1,2,3};
+    
+        dot.setLocations(locations);
+
+        boolean isValid = guessTracker.ValidateGuess("2");
+
+        // Test condition
+        String testResults = "failed";
+        if (isValid) {
+            testResults = "passed";
+        }
+
+        return testResults;
+
+    }
+
+    public String canCheckInvalidGuess() {
+        
+        SimpleDotCom dot = new SimpleDotCom();
+        GuessTracker guessTracker = new GuessTracker();
+        int[] locations = {1,2,3};
+    
+        dot.setLocations(locations);
+
+        guessTracker.ValidateGuess("2");
+        boolean isValid = guessTracker.ValidateGuess("2");
+        
+
+        // Test condition
+        String testResults = "failed";
+        if (!isValid) {
+            testResults = "passed";
+        }
+
+        return testResults;
+
+    }
 
 }
