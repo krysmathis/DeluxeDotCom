@@ -2,7 +2,7 @@ class SimpleDotComTest {
     
     public String canCheckGuess() {
         
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
 
         int[] locations = {1,2,3};
     
@@ -23,7 +23,7 @@ class SimpleDotComTest {
 
     public String canCheckHits() {
         
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
 
         int[] locations = {1,2,3};
     
@@ -44,7 +44,7 @@ class SimpleDotComTest {
     }
 
     public String canCheckKill() {
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
 
         int[] locations = {1,2,3};
     
@@ -65,7 +65,7 @@ class SimpleDotComTest {
    
     public String canCheckValidGuess() {
         
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
         GuessTracker guessTracker = new GuessTracker();
         int[] locations = {1,2,3};
     
@@ -85,7 +85,7 @@ class SimpleDotComTest {
 
     public String canCheckInvalidGuess() {
         
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
         GuessTracker guessTracker = new GuessTracker();
         int[] locations = {1,2,3};
     

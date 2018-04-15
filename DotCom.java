@@ -1,4 +1,6 @@
-class SimpleDotCom {
+import java.util.ArrayList;
+
+class DotCom {
     
     int hits = 0;
     boolean killed = false; 
@@ -16,6 +18,7 @@ class SimpleDotCom {
     public boolean isKilled() {
         return killed;
     }
+
 
     public String checkYourself(String guess) {
 

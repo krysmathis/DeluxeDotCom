@@ -10,11 +10,10 @@ public class GuessTracker {
         // string to integer from the main
         int newGuess = Integer.parseInt(guess);
 
-        for (int pastGuess : pastGuesses) {
-            if (newGuess == pastGuess) {
-                return false;
-            }
+        if (pastGuesses.contains(newGuess)) {
+            return false;
         }
+       
         pastGuesses.add(newGuess);
         return true;
     }

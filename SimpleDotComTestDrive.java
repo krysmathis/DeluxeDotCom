@@ -2,7 +2,9 @@ import java.util.Random;
 
 class SimpleDotComTestDrive {
 
-    public static void main(String[] args) {
+    private static void RunTests() {
+        
+        System.out.println("Running tests...");
 
         SimpleDotComTest test = new SimpleDotComTest();
         System.out.println("Running test suite:");
@@ -11,8 +13,19 @@ class SimpleDotComTestDrive {
         System.out.println(test.canCheckKill());
         System.out.println(test.canCheckValidGuess());
         System.out.println(test.canCheckInvalidGuess());
+    }
 
-        SimpleDotCom dot = new SimpleDotCom();
+    public static void main(String[] args) {
+
+
+        for (String arg : args) {
+            System.out.println(arg);
+            if (arg.equals("test")) {
+                RunTests();
+            } 
+        }
+
+        DotCom dot = new DotCom();
         GameHelper gameHelper = new GameHelper();
         GuessTracker guessTracker = new GuessTracker();
 
