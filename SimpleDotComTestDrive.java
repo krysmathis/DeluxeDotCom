@@ -11,6 +11,7 @@ class SimpleDotComTestDrive {
         System.out.println(test.canCheckKill());
 
         SimpleDotCom dot = new SimpleDotCom();
+        GameHelper gameHelper = new GameHelper();
 
         int numberOfGuesses = 0;
         Random r = new Random();
@@ -21,8 +22,7 @@ class SimpleDotComTestDrive {
 
         //System.out.println("location starts at: " + start);
         while (!dot.isKilled()) {
-            System.out.println("Enter a number");
-            String guess = System.console().readLine();
+            String guess = gameHelper.getUserInput("enter a number");
             String result = dot.checkYourself(guess);
             System.out.println(result);
             numberOfGuesses++;
