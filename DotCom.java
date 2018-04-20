@@ -2,10 +2,19 @@ import java.util.ArrayList;
 
 class DotCom {
     
-    int hits = 0;
-    boolean killed = false; 
-    int[] locations;
-    String[] states = { "missed", "hit", "killed", "already dead" };
+    private int hits = 0;
+    private boolean killed = false; 
+    private int[] locations;
+    private String[] states = { "missed", "hit", "killed", "already dead" };
+    private String _name;
+
+    public void setName(String name) {
+        this._name = name;
+    }
+
+    public String getName() {
+        return _name;
+    }
 
     public void setLocations(int[] locations) {
         this.locations = locations;
