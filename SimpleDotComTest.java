@@ -1,22 +1,27 @@
+import java.util.ArrayList;
+
 class SimpleDotComTest {
     
     public String canCheckGuess() {
         
         DotCom dot = new DotCom();
-
-        int[] locations = {1,2,3};
-    
+        
+        ArrayList<String> locations = new ArrayList<String>();
+        locations.add("1");
+        locations.add("2");
+        locations.add("3");
+        
         dot.setLocations(locations);
     
         // get user guess
         String userGuess = "2";
         String result = dot.checkYourself(userGuess);
+        
         String testResults = "failed";
-    
         if (result.equals("hit")) {
             testResults = "passed";
         }
-    
+        System.out.println("canCheckGuess");
         return testResults;
 
     }
@@ -25,11 +30,14 @@ class SimpleDotComTest {
         
         DotCom dot = new DotCom();
 
-        int[] locations = {1,2,3};
+        ArrayList<String> locations = new ArrayList<String>();
+        locations.add("b1");
+        locations.add("b2");
+        locations.add("b3");
     
         dot.setLocations(locations);
-        dot.checkYourself("1");
-        dot.checkYourself("2");
+        dot.checkYourself("b1");
+        dot.checkYourself("b2");
 
 
         int hits = dot.getHits();
@@ -38,7 +46,7 @@ class SimpleDotComTest {
         if (hits == 2) {
             testResults = "passed";
         }
-
+        System.out.println("canCheckHits");
         return testResults;
 
     }
@@ -46,7 +54,10 @@ class SimpleDotComTest {
     public String canCheckKill() {
         DotCom dot = new DotCom();
 
-        int[] locations = {1,2,3};
+        ArrayList<String> locations = new ArrayList<String>();
+        locations.add("1");
+        locations.add("2");
+        locations.add("3");
     
         dot.setLocations(locations);
         dot.checkYourself("1");
@@ -59,7 +70,7 @@ class SimpleDotComTest {
         if (isKilled) {
             testResults = "passed";
         }
-
+        System.out.println("canCheckKill");
         return testResults;
     }
    
@@ -67,18 +78,21 @@ class SimpleDotComTest {
         
         DotCom dot = new DotCom();
         GuessTracker guessTracker = new GuessTracker();
-        int[] locations = {1,2,3};
+        ArrayList<String> locations = new ArrayList<String>();
+        locations.add("B1");
+        locations.add("B2");
+        locations.add("B3");
     
         dot.setLocations(locations);
 
-        boolean isValid = guessTracker.ValidateGuess("2");
+        boolean isValid = guessTracker.ValidateGuess("B2");
 
         // Test condition
         String testResults = "failed";
         if (isValid) {
             testResults = "passed";
         }
-
+        System.out.println("canCheckValidGuess");
         return testResults;
 
     }
@@ -87,7 +101,11 @@ class SimpleDotComTest {
         
         DotCom dot = new DotCom();
         GuessTracker guessTracker = new GuessTracker();
-        int[] locations = {1,2,3};
+        ArrayList<String> locations = new ArrayList<String>();
+        locations.add("1");
+        locations.add("2");
+        locations.add("3");
+
     
         dot.setLocations(locations);
 
@@ -100,9 +118,21 @@ class SimpleDotComTest {
         if (!isValid) {
             testResults = "passed";
         }
-
+        System.out.println("canCheckInvalidGuess");
         return testResults;
 
+    }
+
+    public String GameHelperCanGetList() {
+        
+        GameHelper gameHelper = new GameHelper();
+        ArrayList<String> locations = gameHelper.placeDotCom(3);
+        String testResults = "failed";
+        if (locations.size() == 3) {
+            testResults = "passed";
+        }
+        System.out.println("GameHelperCanGetList");
+        return testResults;
     }
 
 }

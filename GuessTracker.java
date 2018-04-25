@@ -2,19 +2,15 @@ import java.util.ArrayList;;
 
 public class GuessTracker {
 
-    private ArrayList<Integer> pastGuesses = new ArrayList<Integer>();
+    private ArrayList<String> pastGuesses = new ArrayList<String>();
     
     public boolean ValidateGuess(String guess) {
 
-        // TODO: centralize and control conversion of input
-        // string to integer from the main
-        int newGuess = Integer.parseInt(guess);
-
-        if (pastGuesses.contains(newGuess)) {
+        if (pastGuesses.contains(guess)) {
             return false;
         }
        
-        pastGuesses.add(newGuess);
+        pastGuesses.add(guess);
         return true;
     }
 }

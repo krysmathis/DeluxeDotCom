@@ -4,7 +4,7 @@ class DotCom {
     
     private int hits = 0;
     private boolean killed = false; 
-    private int[] locations;
+    private ArrayList<String> locations;
     private String[] states = { "missed", "hit", "killed", "already dead" };
     private String _name;
 
@@ -16,7 +16,7 @@ class DotCom {
         return _name;
     }
 
-    public void setLocations(int[] locations) {
+    public void setLocations(ArrayList<String> locations) {
         this.locations = locations;
     }
 
@@ -28,16 +28,23 @@ class DotCom {
         return killed;
     }
 
+    public String getLocations() {
+        String locationsOfDotCom ="";
+        for (String loc : locations) {
+            locationsOfDotCom += loc + ", ";
+        }
+        return locationsOfDotCom;
+    }
 
     public String checkYourself(String guess) {
 
-        int guessLocation = Integer.parseInt(guess);
+        String guessLocation = guess;
         
         // default to missed
         String result = states[0];
 
         // if it is already dead
-        if (hits >= locations.length) {
+        if (hits >= locations.size()) {
             return states[3];
         }
 
@@ -45,15 +52,16 @@ class DotCom {
         //  1. Increment the hits property
         //  2. Update the result value
         //  3. Stop looping
-        for (int location : locations) {
-            if (guessLocation == location) {
+        for (String location : locations) {
+
+            if (guessLocation.equals(location)) {
                 hits++;
                 result = states[1];
                 break;
             }
         }
 
-        if (hits >= locations.length) {
+        if (hits >= locations.size()) {
             killed = true;
             result = states[2];
         }
